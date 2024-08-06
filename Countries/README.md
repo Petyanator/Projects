@@ -1,0 +1,1 @@
+This simple javascript shows you a country of your choice and capital

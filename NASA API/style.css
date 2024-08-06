@@ -1,0 +1,16 @@
+img{
+    width: 30rem;
+    height: 30rem;
+
+}
+#bomba{
+    display: flex;
+    flex-direction: row-reverse;
+    margin-left: 10rem;
+    margin-right: 10rem;
+    justify-content: space-evenly;
+}
+#begin{
+    display: flex;
+    justify-content: center;
+}
