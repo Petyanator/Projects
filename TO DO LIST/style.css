@@ -1,0 +1,88 @@
+@font-face {
+    font-family: Bombaclat;
+    src: url(./assets/fonts/HighlandGothicFLF.ttf);
+}
+body{
+    font-family: Bombaclat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #00A9FF;
+}
+#container{
+    border: 4px solid #00A9FF;
+    width: 30rem;
+    height: 35rem;
+    border-radius: 20px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+ul{
+    list-style: none;
+    padding: 0px;
+    overflow-y:auto;
+    margin: 0px;
+    border: 3px solid #00A9FF;
+    overflow: auto;
+    height: 29rem;
+    width: 27rem;
+    border-radius: 12px;
+}
+ul li{
+    margin: 1.2rem;
+    border: 2px solid #00A9FF;
+    height: 2.4rem;
+    border-radius: 12px;
+    background-color: white;
+    font-size: 1.6rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+#trash{
+    background: none;
+    border: none;
+    padding: 0px;
+    padding-right: 1%;
+    cursor: pointer;
+    padding-top: 1%;
+}
+#trash span{
+    font-size: 2.2rem;
+    color: #00A9FF;
+}
+h1{
+    margin-bottom: 0px;
+}
+input{
+    margin: 1.2rem;
+    width: 27rem;
+    height: 2.1rem;
+    border-radius: 12px;
+    border: 2px solid #00A9FF;
+    font-size: 1.6rem;
+    color: #00A9FF;
+    font-family: Bombaclat;
+}
+#inputbox{
+    position: relative;
+}
+#addbtn{
+    position: absolute;
+    right: 4%;
+    top: 27%;
+    background: #00A9FF;
+    border: none;
+    border-radius: 12px;
+    height: 2.2rem;
+    width: 4rem;
+    cursor: pointer;
+}
+#addbtn span{
+    color: whitesmoke;
+    font-size: 2rem;
+}
