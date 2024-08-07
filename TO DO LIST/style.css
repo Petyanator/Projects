@@ -109,3 +109,16 @@ input{
     color: whitesmoke;
     font-size: 2rem;
 }
+#checkbt{
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+#checkbt span{
+    color: #00A9FF;
+    font-size: 2rem;
+}
+#boxoox{
+    display: flex;
+    flex-direction: row;
+}
