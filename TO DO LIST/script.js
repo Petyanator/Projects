@@ -29,13 +29,8 @@ function renderList() {
     });
 }
 
-// Initial render of the list on page load
-document.addEventListener("DOMContentLoaded", function() {
-    renderList();
-});
-
-// Adding new item
-btn.addEventListener("click", function() {
+// Function to add a new item to the list
+function addItem() {
     if (input.value.trim() === "") {
         return;
     }
@@ -43,4 +38,18 @@ btn.addEventListener("click", function() {
     localStorage.setItem("itemlist", JSON.stringify(itemlist)); // Save updated list to localStorage
     renderList(); // Re-render the list
     input.value = ""; // Clear the input field
+}
+
+// Event listener for the button click
+btn.addEventListener("click", addItem);
+
+// Event listener for the Enter key press
+input.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        event.preventDefault();
+        addItem();
+    }
 });
+
+// Initial render of the list on page load
+document.addEventListener("DOMContentLoaded", renderList);
