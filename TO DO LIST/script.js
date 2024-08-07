@@ -1,42 +1,46 @@
-const btn = document.getElementById("addbtn")
-let list  = document.getElementById("listofitems")
-let input = document.getElementById("input")
-let nickname = prompt("Enter your nickname")
-let itemlist = []
-document.addEventListener("DOMContentLoaded", function(e){
-    localStorage.getItem(`${nickname}`, itemlist)
-    for(i = 0; i < itemlist.length; i++){
-        let li = list.appendChild(document.createElement("li"))
-        li.textContent = itemlist[i]
-        li.classList.add("listitem")
-        trashcan = document.createElement("button")
-        trashcan.id = "trash"
-        span = document.createElement("span")
-        span.classList.add("material-symbols-outlined")
-        span.textContent = "delete"
-        trashcan.appendChild(span)
-        li.appendChild(trashcan)
+const btn = document.getElementById("addbtn");
+let list = document.getElementById("listofitems");
+let input = document.getElementById("input");
+let itemlist = JSON.parse(localStorage.getItem("itemlist")) || []; // Load the existing items or initialize an empty array
+
+// Function to render the list
+function renderList() {
+    list.innerHTML = ""; // Clear the list
+    itemlist.forEach((item, index) => {
+        let li = document.createElement("li");
+        li.textContent = item;
+        li.classList.add("listitem");
+        list.appendChild(li);
+
+        let trashcan = document.createElement("button");
+        trashcan.id = "trash";
+        let span = document.createElement("span");
+        span.classList.add("material-symbols-outlined");
+        span.textContent = "delete";
+        trashcan.appendChild(span);
+        li.appendChild(trashcan);
+
+        // Add click event for the trash can to remove the item
+        trashcan.addEventListener("click", function() {
+            itemlist.splice(index, 1); // Remove item from the list
+            localStorage.setItem("itemlist", JSON.stringify(itemlist)); // Update localStorage
+            renderList(); // Re-render the list
+        });
+    });
+}
+
+// Initial render of the list on page load
+document.addEventListener("DOMContentLoaded", function() {
+    renderList();
+});
+
+// Adding new item
+btn.addEventListener("click", function() {
+    if (input.value.trim() === "") {
+        return;
     }
-})
-// Creating a trash can
-btn.addEventListener("click", function(e){
-    if(input.value.trim() === ""){
-        return
-    }
-    let li = list.appendChild(document.createElement("li"))
-    li.textContent = input.value
-    itemlist += li.textContent + " "
-    localStorage.setItem(`${nickname}`, itemlist)
-    console.log(itemlist)
-    li.classList.add("listitem")
-    trashcan = document.createElement("button")
-    trashcan.id = "trash"
-    span = document.createElement("span")
-    span.classList.add("material-symbols-outlined")
-    span.textContent = "delete"
-    trashcan.appendChild(span)
-    li.appendChild(trashcan)
-    trashcan.addEventListener("click", function(e){
-        list.removeChild(li)
-    })
-})
+    itemlist.push(input.value.trim()); // Add new item to the list
+    localStorage.setItem("itemlist", JSON.stringify(itemlist)); // Save updated list to localStorage
+    renderList(); // Re-render the list
+    input.value = ""; // Clear the input field
+});
