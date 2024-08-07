@@ -2,13 +2,35 @@
     font-family: Bombaclat;
     src: url(./assets/fonts/HighlandGothicFLF.ttf);
 }
+/* @keyframes umpalumpa {
+    0%{
+        background-position: 0% 50%;
+    }
+    50%{
+        background-position: 100% 50%;
+    }
+    100%{
+        background-position: 0% 50%;
+    }
+} */
 body{
     font-family: Bombaclat;
+    color: #00A9FF;
+    margin: 0px;
+    height: 100vh
+}
+main{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: #00A9FF;
+    /* background-color: #4158D0;
+    background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);    
+    background-size: 200% 200%;
+    width: 100%;
+    height: 100vh;
+    animation: umpalumpa 15s ease infinite; */
+
 }
 #container{
     border: 4px solid #00A9FF;
@@ -74,11 +96,11 @@ input{
 #addbtn{
     position: absolute;
     right: 4%;
-    top: 27%;
+    top: 24%;
     background: #00A9FF;
     border: none;
     border-radius: 12px;
-    height: 2.2rem;
+    height: 2.47rem;
     width: 4rem;
     cursor: pointer;
 }
